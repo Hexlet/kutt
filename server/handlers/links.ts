@@ -71,7 +71,7 @@ export const create: Handler = async (req: CreateLinkReq, res) => {
         domain_id
       }),
     !customurl && utils.generateId(domain_id),
-    validators.bannedDomain(targetDomain),
+    // validators.bannedDomain(targetDomain),
     validators.bannedHost(targetDomain)
   ]);
 
@@ -134,7 +134,7 @@ export const edit: Handler = async (req, res) => {
         address,
         domain_id
       }),
-    validators.bannedDomain(targetDomain),
+    // validators.bannedDomain(targetDomain),
     validators.bannedHost(targetDomain)
   ]);
 

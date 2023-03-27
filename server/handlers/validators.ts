@@ -473,3 +473,13 @@ export const bannedHost = async (domain: string) => {
     throw new CustomError("URL is containing malware/scam.", 400);
   }
 };
+
+export const defaultDomain = (domain_adress: string) => {
+  if (env.DISALLOW_USING_DEFAULT_DOMAIN !== "true") {
+    return;
+  }
+
+  if (!domain_adress || domain_adress === env.DEFAULT_DOMAIN) {
+    throw new CustomError("You must select a domain");
+  }
+}

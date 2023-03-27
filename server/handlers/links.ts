@@ -52,6 +52,7 @@ export const create: Handler = async (req: CreateLinkReq, res) => {
     expire_in
   } = req.body;
   const domain_id = domain ? domain.id : null;
+  const domain_adress = domain ? domain.address : null;
 
   const targetDomain = utils.removeWww(URL.parse(target).hostname);
 
@@ -72,7 +73,8 @@ export const create: Handler = async (req: CreateLinkReq, res) => {
       }),
     !customurl && utils.generateId(domain_id),
     // validators.bannedDomain(targetDomain),
-    validators.bannedHost(targetDomain)
+    validators.bannedHost(targetDomain),
+    validators.defaultDomain(domain_adress)
   ]);
 
   // if "reuse" is true, try to return

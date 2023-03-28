@@ -309,6 +309,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
               stroke={Colors.StopIcon}
               backgroundColor={Colors.StopIconBg}
               onClick={() => setBanModal(true)}
+              style={{ display: 'none' }}
             />
           )}
           <Action
@@ -318,6 +319,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
             stroke={Colors.TrashIcon}
             backgroundColor={Colors.TrashIconBg}
             onClick={() => setDeleteModal(index)}
+            style={{ visibility: 'hidden' }}
           />
         </Td>
       </Tr>

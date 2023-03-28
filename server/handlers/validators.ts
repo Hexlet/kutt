@@ -83,7 +83,8 @@ export const createLink = [
     .isBoolean()
     .withMessage("Reuse must be boolean."),
   body("description")
-    .optional({ nullable: true, checkFalsy: true })
+    .exists({ checkNull: true, checkFalsy: true })
+    .withMessage("Description is missing.")
     .isString()
     .trim()
     .isLength({ min: 0, max: 2040 })
@@ -172,7 +173,8 @@ export const editLink = [
     .withMessage("Minimum expire time should be '1 minute'.")
     .customSanitizer(value => addMilliseconds(new Date(), value).toISOString()),
   body("description")
-    .optional({ nullable: true, checkFalsy: true })
+    .exists({ checkNull: true, checkFalsy: true })
+    .withMessage("Description is missing.")
     .isString()
     .trim()
     .isLength({ min: 0, max: 2040 })

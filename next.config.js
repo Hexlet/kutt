@@ -11,5 +11,6 @@ module.exports = {
     DISALLOW_ANONYMOUS_LINKS: localEnv && localEnv.DISALLOW_ANONYMOUS_LINKS,
     DISALLOW_REGISTRATION: localEnv && localEnv.DISALLOW_REGISTRATION,
     SENTRY_PUBLIC_DSN: localEnv && localEnv.SENTRY_PUBLIC_DSN,
+    SHOW_ADVANCED_BY_DEFAULT: localEnv && localEnv.SHOW_ADVANCED_BY_DEFAULT === "true",
   }
 };

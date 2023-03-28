@@ -72,7 +72,7 @@ const Shortener = () => {
   const [formState, { raw, password, text, select, label }] = useFormState<
     Form
   >(
-    { showAdvanced: false },
+    { showAdvanced: publicRuntimeConfig.SHOW_ADVANCED_BY_DEFAULT },
     {
       withIds: true,
       onChange(e, stateValues, nextStateValues) {

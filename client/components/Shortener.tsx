@@ -69,10 +69,17 @@ const Shortener = () => {
   const [message, setMessage] = useMessage(3000);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useCopy();
+  const selectedDefaultDomain = domains
+    .filter((domain) => !domain.banned)
+    .map((domain) => domain.address)
+    .find((domainName) => domainName === publicRuntimeConfig.SELECTED_DEFAULT_DOMAIN);
   const [formState, { raw, password, text, select, label }] = useFormState<
     Form
   >(
-    { showAdvanced: publicRuntimeConfig.SHOW_ADVANCED_BY_DEFAULT },
+    {
+      showAdvanced: publicRuntimeConfig.SHOW_ADVANCED_BY_DEFAULT,
+      domain: selectedDefaultDomain,
+    },
     {
       withIds: true,
       onChange(e, stateValues, nextStateValues) {
@@ -88,7 +95,7 @@ const Shortener = () => {
     try {
       const link = await submit({ ...formState.values, reCaptchaToken });
       setLink(link);
-      formState.clear();
+      formState.reset();
     } catch (err) {
       setMessage(
         err?.response?.data?.error || "Couldn't create the short link."

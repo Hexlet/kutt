@@ -253,6 +253,7 @@ const Shortener = () => {
         label="Show advanced options"
         mt={[3, 24]}
         alignSelf="flex-start"
+        style={{ display: 'none' }}
       />
       {formState.values.showAdvanced && (
         <div>

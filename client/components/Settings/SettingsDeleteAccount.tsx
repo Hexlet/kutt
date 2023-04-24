@@ -71,7 +71,7 @@ const SettingsDeleteAccount: FC = () => {
         <TextInput
           {...password("accpass")}
           placeholder="Password..."
-          autocomplete="off"
+          autoComplete="off"
           mr={3}
         />
         <Button color="red" type="submit" disabled={loading}>

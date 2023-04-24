@@ -17,7 +17,7 @@ interface StyledTextProps extends BoxProps {
   placeholderSize?: number[];
   br?: string;
   bbw?: string;
-  autoComplete?: "on" | "off";
+  autoComplete?: "on" | "off" | "new-password";
 }
 
 export const TextInput = styled(Flex).attrs({
